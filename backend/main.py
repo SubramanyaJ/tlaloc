@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 @app.get("/")
-def main():
+def main(lat: float, lon: float):
     ## Setup a connection
     cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
     retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
@@ -26,7 +26,6 @@ def main():
     # Pack to JSON
 
     ## Get weather data
-    lat, lon = 12.3, 76.6
     # Obtain this directly from the documentation
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
@@ -70,10 +69,10 @@ def main():
 
     hourly_dataframe = pd.DataFrame(data = hourly_data)
 
-    # TODO Precipitation probability vs precipitation (chart.js)
-    # TODO UV index curve (chart.js)
-    # TODO Wind speed trend (chart.js)
-    # TODO Temperature vs time (chart.js)
+    # DONE Precipitation probability vs precipitation (chart.js)
+    # DONE UV index curve (chart.js)
+    # DONE Wind speed trend (chart.js)
+    # DONE Temperature vs time (chart.js)
     # DONE Total rainfall
     # DONE Min Max Avg Temperature
 
@@ -81,9 +80,11 @@ def main():
     max_temp = max(hourly_data["temperature_2m"])
     total_rainfall = sum(hourly_data["precipitation"])
 
+    avg_temp = sum(hourly_data["temperature_2m"]) / len(hourly_data["temperature_2m"])
     stats = {
         "min_temperature" : float(min_temp),
         "max_temperature" : float(max_temp),
+        "avg_temperature" : float(avg_temp),
         "total_rainfall" : float(total_rainfall)
     }
 

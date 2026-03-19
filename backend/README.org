@@ -4,3 +4,4 @@
   - [[https://peps.python.org/pep-0263/][PEP 263 – Defining Python Source Code Encodings]]
   - [[https://stackoverflow.com/questions/11918512/python-unicodedecodeerror-utf8-codec-cant-decode-byte][ISO-8859-1]]
 + FastAPI: [[https://fastapi.tiangolo.com/#example][FastAPI examples]]
+  - [[https://fastapi.tiangolo.com/tutorial/cors/][CORS with FastAPI]]

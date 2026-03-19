@@ -1,0 +1,23 @@
+@font-face {
+	font-family: "Neosevka";
+	src: url("./assets/Neosevka.woff2") format("woff2")
+}
+
+body {
+	background-color: #141312;
+	color: #F0F0F0;
+	font-family: "Neosevka";
+}
+
+.root {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	margin: auto;
+	justify-content: center;
+}
+
+.inner {
+	margin: auto;
+}

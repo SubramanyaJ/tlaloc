@@ -130,7 +130,8 @@ const fetchWeather = async () => {
     const lat = geoData.results[0].latitude;
     const lon = geoData.results[0].longitude;
 
-    const weatherRes = await fetch(`http://10.217.49.245:8000/?lat=${lat}&lon=${lon}`);
+    // const weatherRes = await fetch(`http://10.217.49.245:8000/?lat=${lat}&lon=${lon}`);
+    const weatherRes = await fetch(`https://tlaloc-backend.vercel.app/?lat=${lat}&lon=${lon}`);
     if (!weatherRes.ok) throw new Error("Failed to fetch weather data");
     
     const weatherData = await weatherRes.json();
